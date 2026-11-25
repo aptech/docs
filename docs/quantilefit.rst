@@ -11,6 +11,8 @@ Format
 .. function:: qOut = quantileFit(y, x [, tau, w, qCtl])
               qOut = quantileFit(dataset, formula [, tau, w, qCtl])
               qOut = quantileFit(dataframe, formula [, tau, w, qCtl])
+              qOut = quantileFit(y, x, tau={}, weights={}, intercept={}, quiet={}, cov_type={}, n_boot={}, level={}, ctl={})
+              qOut = quantileFit(dataframe, formula, tau={}, weights={}, intercept={}, quiet={}, cov_type={}, n_boot={}, level={}, ctl={})
 
     :param y: dependent variable.
     :type y: Nx1 vector
@@ -27,7 +29,7 @@ Format
 
         E.g ``"y ~ ."``, '.' means including all variables except dependent variable 'y';
 
-        E.g ``"y ~ -1 + X1 + X2"``, '-1' means no intercept model.
+        Use ``"y ~ -1 + X1 + X2"`` with ``intercept=0`` for a model without a constant.
 
     :type formula: string
 
@@ -84,7 +86,7 @@ Format
             * - qCtl.bootstrap
               - scalar, number of iterations for bootstrap standard errors and confidence intervals. Default = 0, for no bootstrap.
             * - qCtl.alpha
-              - scalar, alpha values for bootstrap confidence intervals.
+              - scalar, significance level for asymptotic and bootstrap confidence intervals. Default = 0.05.
 
     :type qCtl: struct
 
@@ -114,8 +116,60 @@ Format
 
     :rtype qOut: struct
 
+Named model options
+++++++++++++++++++++
+
+.. list-table::
+    :header-rows: 1
+    :widths: 20 80
+
+    * - Keyword
+      - Meaning and default
+    * - ``tau``
+      - One quantile or a column vector of quantiles strictly between 0 and 1. Default ``0.05 | 0.5 | 0.95``.
+    * - ``weights``
+      - A column vector with one nonnegative weight per observation. Default is uniform weights. Use ``0`` for uniform weights.
+    * - ``intercept``
+      - Include (``1``, the default) or drop (``0``) the constant. With a formula, a supplied value must agree with the formula. Use ``intercept=0`` together with ``"y ~ -1 + x1 + x2"`` to drop the constant.
+    * - ``quiet``
+      - Use ``1`` to suppress the results table or ``0`` to print it. Default ``0``.
+    * - ``cov_type``
+      - Use ``"iid"`` (default) for IID errors or ``"robust"`` for heteroskedasticity-robust covariance.
+    * - ``n_boot``
+      - Nonnegative integer number of bootstrap replications. Default ``0`` disables the bootstrap.
+    * - ``level``
+      - Confidence level for the asymptotic and bootstrap intervals, strictly between 0 and 1. Default ``0.95``.
+    * - ``ctl``
+      - A :class:`qfitControl` to copy. By default, uses :func:`qfitControlCreate`.
+
+Named options override the corresponding settings in the copy of the control.
+Use ``{}`` to omit an option. Supply ``tau``, ``weights`` (positional ``w``),
+and ``ctl`` (positional ``qCtl``) only once each, either positionally or by name.
+
 Examples
 ----------------
+
+Fit three quantiles with bootstrap intervals
+++++++++++++++++++++++++++++++++++++++++++++
+
+::
+
+    rndseed 4893;
+    x = rndn(200, 1);
+    y = 5 + 2*x + rndn(200, 1);
+    data = asDF(y ~ x, "y", "x");
+    struct qfitOut fit;
+    fit = quantileFit(
+        data,
+        "y ~ x",
+        tau=0.1|0.5|0.9,
+        n_boot=200,
+        level=0.90,
+        quiet=1
+    );
+
+Fit a single quantile
++++++++++++++++++++++
 
 ::
 

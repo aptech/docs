@@ -12,6 +12,8 @@ Format
 .. function:: out = glm(y, x, family[, var_names[, categoryIdx[, link]]])
               out = glm(y, x, family[, ctl])
               out = glm(dataset_name, formula, family[, ctl])
+              out = glm(y, x, family, link={}, intercept={}, quiet={}, max_iters={}, tol={}, ctl={})
+              out = glm(dataset_name, formula, family, link={}, intercept={}, quiet={}, max_iters={}, tol={}, ctl={})
 
     :param y: the dependent, or response, variable. *n* is the number of the observations used in the analysis.
     :type y: Nx1 vector
@@ -172,8 +174,51 @@ Format
 
     :rtype out: struct
 
+Named model options
+++++++++++++++++++++
+
+.. list-table::
+    :header-rows: 1
+    :widths: 20 80
+
+    * - Keyword
+      - Meaning and default
+    * - ``link``
+      - Default ``"canonical"`` (also ``""``). The canonical links are ``"identity"`` for normal, ``"logit"`` for binomial, ``"inverse"`` for gamma, ``"ln"`` for Poisson, and ``"inverse squared"`` for inverse Gaussian. All five families accept ``"identity"``, ``"inverse"``, and ``"ln"`` (or ``"log"``). Binomial also accepts ``"logit"``, ``"probit"``, and ``"cloglog"``. Inverse Gaussian also accepts ``"inverse squared"``.
+    * - ``intercept``
+      - Include (``1``) or drop (``0``) the constant. The default for matrices is ``1``. With a formula, the value must agree with the formula. Use ``"y ~ -1 + x1 + x2"`` to drop the constant.
+    * - ``quiet``
+      - Use ``1`` to suppress the results table or ``0`` to print it. Default ``0``.
+    * - ``max_iters``
+      - Positive integer iteration limit. Default ``25``.
+    * - ``tol``
+      - Positive convergence tolerance. Default ``1e-8``.
+    * - ``ctl``
+      - A :class:`glmControl` to copy. By default, uses :func:`glmControlCreate`.
+
+Named options override the corresponding settings in the copy of the control.
+Use ``{}`` to omit an option. Supply ``link`` and ``ctl`` only once each,
+either positionally or by name. Supply ``family`` as the third positional argument.
+
 Examples
 ----------------
+
+Probit regression with named options
++++++++++++++++++++++++++++++++++++++
+
+::
+
+    fname = getGAUSSHome("examples/binary.csv");
+    data = loadd(fname, "admit + gre + gpa");
+    struct glmOut fit;
+    fit = glm(
+        data,
+        "admit ~ gre + gpa",
+        "binomial",
+        link="probit",
+        max_iters=100,
+        quiet=1
+    );
 
 Ordinary linear regression with simulated data matrices.
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++
