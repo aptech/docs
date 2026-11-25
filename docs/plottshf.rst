@@ -8,7 +8,7 @@ Plots high-frequency and irregularly spaced time series data.
 
 Format
 ----------------
-.. function:: plotTSHF([myPlot, ]date_vec, label_unit, y)
+.. function:: plotTSHF([myPlot, ]date_vec, label_unit, y [, title={}, xlabel={}, ylabel={}, legend={}, ylim={}, colors={}, legend_location={}, line_width={}, line_style={}, marker={}, grid={}, xtick_fmt={}])
 
     :param myPlot: Optional argument, a :class:`plotControl` structure.
     :type myPlot: struct
@@ -40,6 +40,57 @@ Format
 
     :param y: Each column contains the Y values for a particular line.
     :type y: Nx1 or NxM matrix
+
+Plot keywords
+++++++++++++++++++++++++
+
+Named settings override the corresponding settings on a copy of ``myPlot``.
+Omit a keyword or use ``{}`` to use the control or plot defaults.
+
+.. list-table::
+    :header-rows: 1
+    :widths: 25 75
+
+    * - Keyword
+      - Meaning
+    * - ``title``
+      - Plot title. Use ``""`` to clear it.
+    * - ``xlabel``
+      - X-axis label. Use ``""`` to clear it.
+    * - ``ylabel``
+      - Y-axis label. Use ``""`` to clear it.
+    * - ``ylim``
+      - Two numbers, ``min | max`` or ``min ~ max``, for a numeric Y axis.
+    * - ``colors``
+      - Color names or RGB values as accepted by :func:`plotSetLineColor`.
+    * - ``legend``
+      - One string label per series. Use ``""`` to clear the legend.
+    * - ``legend_location``
+      - Up to three words from ``top``, ``vcenter`` (or ``middle``), ``bottom``, ``left``, ``hcenter``, ``right``, ``inside`` and ``outside``. ``center`` fills an unspecified direction, or both when used alone.
+    * - ``line_width``
+      - A nonnegative numeric width, or a vector of widths.
+    * - ``line_style``
+      - Style numbers 1 through 5, or ``solid``, ``dash``, ``dot``, ``dashdot`` and ``dashdotdot``. Also accepts ``dashed``, ``dotted``, ``dash-dot``, ``dash-dot-dot``, ``-``, ``--``, ``:`` and ``-.``.
+    * - ``marker``
+      - Symbol numbers −1 through 14 and names from :func:`plotSetLineSymbol`, with shortcuts ``o``, ``s``, ``d``, ``^``, ``v``, ``+``, ``x``, ``*`` and ``h``.
+    * - ``grid``
+      - ``0`` (off), ``1`` (major grid), ``"major"``, ``"minor"`` or ``"both"``.
+
+    * - ``xtick_fmt``
+      - One date-format string accepted by :func:`plotSetXTicLabel`, such as ``"YYYY"`` or ``"YYYY-QQ"``. Use ``""`` to restore the automatic date format. Set rotation with :func:`plotSetXTicLabel`.
+
+``xlim`` and ``stacked`` are not accepted. The X axis contains dates.
+The ``plotAddTS``, ``plotAddTSLog`` and ``plotAddTSHF`` functions do not accept keywords.
+
+Keywords in a plot call
+++++++++++++++++++++++++
+
+::
+
+    y = { 3, 4, 6, 5 };
+    dates = asDate("2020-01-01" $| "2020-01-02" $| "2020-01-05" $| "2020-01-06");
+    plotTSHF(dates, "days", y, title="Daily sales", colors="steelblue",
+        ylabel="Units", xtick_fmt="MO-DD", marker="o");
 
 Examples
 ----------------
