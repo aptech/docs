@@ -32,6 +32,7 @@ Statistics and estimation
 #. **More accurate discrete distributions.** The discrete distribution functions and their inverses, such as :func:`cdfBinomialInv`, are more accurate for extreme probabilities and very large answers.
 #. **Faster, more accurate determinants.** :func:`det` and :func:`detl` are faster and more accurate.
 #. **Sparse eigenvalues in the order you expect.** :func:`spEigv` returns the eigenvalues you ask for, sorted, with complex conjugate pairs together, works for small matrices too, and tells you when the eigenvalues do not converge.
+#. **Sample or population standard deviation.** :func:`stdc` and :func:`astd` divide by N instead of N-1 with ``divisor="population"``. The default is still the sample standard deviation.
 
 Graphics
 ~~~~~~~~
@@ -53,6 +54,7 @@ Data and programming
 ~~~~~~~~~~~~~~~~~~~~
 
 #. **Load data with fewer steps.** Give :func:`loadd` its file options by name, with no control structure: ``x = loadd("sales.xlsx", "Revenue + Cost", sheet="Q3", header_row=2)``. Choose the sheet by number or name, the header row, the rows to read, the CSV delimiter and quotation mark, and missing-value codes such as ``missing=-999``, which also work in number columns.
+#. **Clearer calls with named inputs.** :func:`cdfn`, :func:`rndBeta`, :func:`cdfBeta`, :func:`cdfBetaInv`, :func:`rndBinomial`, :func:`cdfBinomial`, :func:`cdfBinomialInv`, :func:`rndMVn`, :func:`rndMVt` and :func:`rndWishart` accept their inputs by name, so each call shows what its numbers mean: ``rndBinomial(1000, 1, trials=20, prob=0.3)``. Leave out what you don't need: ``cdfn(x, sigma=2)`` uses a mean of 0.
 #. **Save a whole set of results in one file.** :func:`saved` and :func:`loadd` save and load structures, structure arrays, strings, N-dimensional arrays and sparse matrices in ``.gdat`` files, keeping the column names, types, date formats and labels of dataframes inside structures. Load just one member with a path, for example ``loadd("fit.gdat", "settings.method_name")``.
 #. **Write HDF5 files.** :func:`saved` writes HDF5 files, for example ``saved(x, "results.h5")``, and :func:`loadd` reads them back.
 #. **Differences in one call.** The new function :func:`diff` computes repeated lag differences of vectors, matrices and dataframes.
@@ -82,6 +84,7 @@ Most programs need no changes. Here is what to check.
 #. An extra index on a string or string array, such as ``s[1, 1, 2]``, stops with error G0058, as it does for a matrix. A third index of 1 or ``.`` is still accepted.
 #. :func:`lapgeigv` stops with error G0674 when its input contains a missing value, NaN or Inf.
 #. :func:`minimize` stops with an error when ``ctl.m`` is less than 1.
+#. A procedure argument with the same name as a GAUSS function, such as ``rows``, stops with error G0276 on the ``proc`` line. Rename the argument.
 
 **Programs that use fn**
 
