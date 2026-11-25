@@ -348,6 +348,14 @@ as text. To read them as dates in day-first order, give an explicit format:
     data = loadd("uk_dates_dot.csv", "date(when, '%d.%m.%Y')");
     data = loadd("uk_dates_short.csv", "date(when, '%d-%m-%y')");
 
+For a one-column CSV containing unquoted date-times, specify ``delimiter=","``
+so the space between the date and time is not detected as a field separator.
+An explicit date format alone does not prevent the time from being split off:
+
+::
+
+    data = loadd("uk_times.csv", "date($when, '%d/%m/%Y %H:%M')", delimiter=",");
+
 Loading different variable types
 +++++++++++++++++++++++++++++++++
 
