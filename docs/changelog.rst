@@ -19,7 +19,7 @@ Speed
 #. **Much faster sparse matrices.** Solving a large sparse system with ``/`` is about 100 times faster for 160,000 unknowns. ``b / a`` with a sparse symmetric positive definite *a*, such as the :math:`X'X` of a sparse design, uses a sparse Cholesky factorization. :func:`spEigv` finds the smallest eigenvalues of a 5,000-row matrix in milliseconds instead of 15 seconds, and :func:`spChol` and :func:`spLDL` have a new ``order="amd"`` option that is much faster on large matrices.
 #. **Faster Monte Carlo and bootstrap.** Programs that create and replace large matrices again and again run faster on Windows and macOS. In our tests on Windows, an OLS Monte Carlo ran up to 40% faster, a bootstrap 27% faster, and a loop updating a 2000x2000 matrix twice as fast.
 #. **Faster on AMD processors.** On processors with AVX2, GAUSS uses the faster AVX2 code in its math library. In our tests on a recent AMD processor, :func:`chol` is about 2 times faster, :func:`cdfnc` about 2.4 times, and matrix multiplication about 1.4 times for 500x500 matrices.
-#. **Native on Apple silicon.** GAUSS runs natively on Macs with Apple silicon (M1 and later), with no Rosetta translation. It needs macOS 14 or later.
+#. **Native on Apple silicon.** GAUSS runs natively on Macs with Apple silicon (M1 and later), with no Rosetta translation. In our tests on an M4 Max, compared with GAUSS 26 on the same Mac, a loop-based AR(1) filter ran 3.7 times as fast, 2000x2000 matrix multiplication about 3 times as fast, and a one-million-row OLS regression 2.4 times as fast. It needs macOS 14 or later.
 #. **Quick to start,** even with a long command history, and responsive in workspaces with many structures.
 
 Statistics and estimation
@@ -34,10 +34,12 @@ Statistics and estimation
 #. **Faster, more accurate determinants.** :func:`det` and :func:`detl` are faster and more accurate.
 #. **Sparse eigenvalues in the order you expect.** :func:`spEigv` returns the eigenvalues you ask for, sorted, with complex conjugate pairs together, works for small matrices too, and tells you when the eigenvalues do not converge.
 #. **Sample or population standard deviation.** :func:`stdc` and :func:`astd` divide by N instead of N-1 with ``divisor="population"``. The default is still the sample standard deviation.
+#. **Estimation options by name.** :func:`glm` and :func:`quantileFit` take their common options by name, with no control structure: ``glm(y, x, "binomial", link="probit")`` or ``quantileFit(df, "wage ~ educ + exper", tau=0.1|0.5|0.9, n_boot=200, level=0.90)``. Choose the link, intercept, iteration limit and tolerance for glm, and the quantiles, weights, covariance type, bootstrap replications and confidence level for quantileFit. ``quiet=1`` turns off the printed report.
 
 Graphics
 ~~~~~~~~
 
+#. **Style a graph in the same line that draws it.** :func:`plotXY`, :func:`plotScatter`, :func:`plotBar`, :func:`plotTS`, :func:`plotTSLog` and :func:`plotTSHF` take a title, axis labels, legend, colors, line style and width, markers, grid lines and the y range by name, with no plotControl setup: ``plotTS(1990, 4, gdp, title="Real GDP", ylabel="Billions of dollars", xtick_fmt="YYYY")``. Set the x range of XY, scatter and bar graphs with ``xlim``, the date-label format of time-series graphs with ``xtick_fmt``, and stack bars with ``stacked=1``. You can still pass a plotControl for shared settings; a name changes only its own setting.
 #. **3D surfaces beside your other graphs.** Put a surface next to XY, scatter, bar and other 2D graphs in :func:`plotLayout` and :func:`plotCustomLayout`, and move, resize, pop out and export it like any other graph. Label it with text boxes, including LaTeX. Text is sharp at any display scaling and stays real text in PDF and SVG exports. New **Projection** and **Box** settings, new **Front Left** and **Front Right** camera presets, and your mouse rotation is saved in ``.plot`` files.
 #. **Layouts that line up.** Graphs of the same size in a layout align their axes in every row and column, whatever their titles, labels or fonts. Titles are centered over the plot area.
 #. **Smarter axes.** The number of tick labels fits the size of the graph, an axis ends at the data unless a round number is close, labels stay round when you zoom or pan, very large and very small values share a power of ten (for example, ×10\ :sup:`12`), and ranges set with :func:`plotSetXRange` or :func:`plotSetYRange` are drawn exactly as you give them.
@@ -54,7 +56,7 @@ The editor
 Data and programming
 ~~~~~~~~~~~~~~~~~~~~
 
-#. **Load data with fewer steps.** Give :func:`loadd` its file options by name, with no control structure: ``x = loadd("sales.xlsx", "Revenue + Cost", sheet="Q3", header_row=2)``. Choose the sheet by number or name, the header row, the rows to read, the CSV delimiter and quotation mark, and missing-value codes such as ``missing=-999``, which also work in number columns.
+#. **Load data with fewer steps.** Give :func:`loadd` and :func:`loaddSA` their file options by name, with no control structure: ``x = loadd("sales.xlsx", "Revenue + Cost", sheet="Q3", header_row=2)``. Choose the sheet by number or name, the header row, the rows to read, the CSV delimiter and quotation mark, and missing-value codes such as ``missing=-999``, which also work in number columns.
 #. **Clearer calls with named inputs.** :func:`cdfn`, :func:`rndBeta`, :func:`cdfBeta`, :func:`cdfBetaInv`, :func:`rndBinomial`, :func:`cdfBinomial`, :func:`cdfBinomialInv`, :func:`rndMVn`, :func:`rndMVt` and :func:`rndWishart` accept their inputs by name, so each call shows what its numbers mean: ``rndBinomial(1000, 1, trials=20, prob=0.3)``. Leave out what you don't need: ``cdfn(x, sigma=2)`` uses a mean of 0.
 #. **Spreadsheet sheets by name.** :func:`xlsReadM`, :func:`xlsReadSA`, :func:`xlsWrite`, :func:`xlsWriteM`, :func:`xlsWriteSA`, :func:`SpreadsheetReadM`, :func:`SpreadsheetReadSA` and :func:`SpreadsheetWrite` accept a sheet name as well as a number. Writing to a new name adds that sheet.
 #. **Save a whole set of results in one file.** :func:`saved` and :func:`loadd` save and load structures, structure arrays, strings, N-dimensional arrays and sparse matrices in ``.gdat`` files, keeping the column names, types, date formats and labels of dataframes inside structures. Load just one member with a path, for example ``loadd("fit.gdat", "settings.method_name")``.
@@ -105,6 +107,7 @@ Also improved
 #. :func:`loadd` reads Excel columns of numbers stored as text, and text columns of files written with :func:`saved`, including columns with missing values.
 #. With ``trap 1``, :func:`loadd` returns an error code you can test when a spreadsheet file does not exist, instead of stopping.
 #. Accented and other non-English text in spreadsheets now reads and writes correctly on Linux and macOS, whatever the system language setting, including in batch jobs.
+#. :func:`glm` accepts your own variable names when you fit without an intercept.
 #. :func:`linsolve` solves systems with a complex *A*.
 #. Web data functions such as :func:`fred_load` keep your API key out of printed output and error messages.
 #. More reliable structures, structure arrays and indexed assignment, library builds with :func:`lib`, package installs with ``gpkg``, and start-up.
