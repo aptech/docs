@@ -80,6 +80,7 @@ Most programs need no changes. Here is what to check.
 #. :func:`spCreate` adds together values given more than once for the same row and column, as other sparse tools do.
 #. :func:`cdfMvne`, :func:`cdfMvte` and related functions can return *retcode* 1 when the error estimate exceeds the requested tolerance. More evaluations may reduce integration error, but cannot reduce the bound from treating a near-singular correlation matrix as singular. Compare the returned *err* with the accuracy your application requires; raising ``ctl.maxEvaluations`` does not always resolve status 1.
 #. The cumulative distribution functions return 0 or 1 for an *x* outside the distribution's range, and an error code for a parameter outside its range, instead of -1 or 2.
+#. :func:`loadd` reads dates that fit both day-first and month-first order, such as ``01/02/2020`` or ``01-02-2020 10:30``, month-first (January 2) on every platform. For day-first data, give the format, for example ``date(when, '%d/%m/%Y')``. See :ref:`loadd-dates-two-ways`.
 
 **Invalid input now stops with an error**
 
@@ -106,6 +107,7 @@ Also improved
 
 #. :func:`loadd` reads Excel columns of numbers stored as text, and text columns of files written with :func:`saved`, including columns with missing values.
 #. With ``trap 1``, :func:`loadd` returns an error code you can test when a spreadsheet file does not exist, instead of stopping.
+#. UK date-times load day-first even when the first day over 12 comes late in the column, US dates with hyphens and times load as dates, and the data import dialog keeps the date format you choose.
 #. Accented and other non-English text in spreadsheets now reads and writes correctly on Linux and macOS, whatever the system language setting, including in batch jobs.
 #. :func:`glm` accepts your own variable names when you fit without an intercept.
 #. :func:`linsolve` solves systems with a complex *A*.
