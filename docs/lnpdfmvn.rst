@@ -21,6 +21,19 @@ Format
 
     :rtype z: Nx1 vector
 
+Keyword arguments
+-----------------
+
+.. list-table::
+    :header-rows: 1
+
+    * - Keyword
+      - Default
+    * - ``x``
+      - Required
+    * - ``cov``
+      - Required
+
 Examples
 ----------------
 
@@ -37,7 +50,7 @@ Uncorrelated variables
       x2 = seqa(-3, .2, 3/.2);
       x = x1~x2;
 
-      z = lnpdfmvn(x, cov);
+      z = lnpdfmvn(x, cov=cov);
 
       print "z =";
       z;

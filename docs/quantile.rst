@@ -10,6 +10,7 @@ Computes quantiles from data in a matrix, given specified probabilities.
 Format
 ----------------
 .. function:: y = quantile(x, e[, tp])
+              y = quantile(x, e, method=4)
 
     :param x: data
     :type x: NxK matrix
@@ -24,8 +25,28 @@ Format
 
     :rtype y: LxK matrix
 
+Keyword options
+---------------
+
+.. list-table::
+    :header-rows: 1
+
+    * - Keyword
+      - Values
+      - Default
+    * - ``method``
+      - Integer from 1 to 9. See the definitions below.
+      - ``4``
+
+Supply the sample quantile type once, either as ``tp`` or as ``method``.
+
 Examples
 ----------------
+
+Compute the 10th, 50th and 90th percentiles using type 7::
+
+    x = { 1, 2, 4, 8, 16 };
+    y = quantile(x, 0.1|0.5|0.9, method=7);
 
 ::
 

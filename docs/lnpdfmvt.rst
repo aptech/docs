@@ -24,6 +24,21 @@ Format
 
     :rtype z: Nx1 vector
 
+Keyword arguments
+-----------------
+
+.. list-table::
+    :header-rows: 1
+
+    * - Keyword
+      - Default
+    * - ``x``
+      - Required
+    * - ``scale``
+      - Required
+    * - ``df``
+      - Required
+
 Examples
 ----------------
 
@@ -43,7 +58,7 @@ Uncorrelated variables
   x2 = seqa(-3, .2, 3/.2);
   x = x1~x2;
 
-  t = lnpdfmvt(x, scale, df);
+  t = lnpdfmvt(x, scale=scale, df=df);
 
   print "t =";
   t;

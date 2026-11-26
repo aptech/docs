@@ -9,7 +9,9 @@ Computes an estimate of a variance-covariance matrix.
 Format
 ----------------
 .. function:: vc = vcm(m [, ddof])
+              vc = vcm(m, divisor="sample")
               vc = vcx(x [, ddof])
+              vc = vcx(x, divisor="sample")
 
     :param m: A constant term MUST have been the first variable when the moment matrix was computed.
     :type m: KxK moment (:math:`x'x`) matrix
@@ -25,6 +27,21 @@ Format
 
     :rtype vc: KxK variance-covariance matrix
 
+Keyword options
+---------------
+
+.. list-table::
+    :header-rows: 1
+
+    * - Keyword
+      - Values
+      - Default
+    * - ``divisor``
+      - ``"sample"`` divides by :math:`N-1`. ``"population"`` divides by :math:`N`.
+      - ``"sample"``
+
+Supply either ``ddof`` or ``divisor`` in a call. Use positional ``ddof`` for
+other degrees of freedom adjustments.
 
 Examples
 -------------
@@ -42,7 +59,7 @@ Compute covariance matrices from a data matrix, :math:`x`.
     vcs = vcx(x);
  
     // Compute the population covariance matrix
-    vcp = vcx(x, 0);
+    vcp = vcx(x, divisor="population");
 
     // Compute the sample covariance matrix
     vcs2 = vcx(x, 1);
@@ -78,7 +95,7 @@ Compute covariance matrices from a moment matrix, :math:`x'x`.
     vcs = vcm(m);
  
     // Compute the population covariance matrix
-    vcp = vcm(m, 0);
+    vcp = vcm(m, divisor="population");
 
     // Compute the sample covariance matrix
     vcs2 = vcm(m, 1);

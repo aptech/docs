@@ -20,6 +20,19 @@ Format
 
     :rtype y: matrix
 
+Keyword arguments
+-----------------
+
+.. list-table::
+    :header-rows: 1
+
+    * - Keyword
+      - Default
+    * - ``scale``
+      - Required
+    * - ``df``
+      - Required
+
 Examples
 ----------------
 
@@ -33,7 +46,7 @@ Examples
     df = 10;
 
     // A random matrix from inverse Wishart distribution
-    y = rndWishartInv(scale, df);
+    y = rndWishartInv(df=df, scale=scale);
 
     print y;
 
