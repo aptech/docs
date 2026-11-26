@@ -108,6 +108,7 @@ Also improved
 #. :func:`loadd` reads Excel columns of numbers stored as text, and text columns of files written with :func:`saved`, including columns with missing values.
 #. With ``trap 1``, :func:`loadd` returns an error code you can test when a spreadsheet file does not exist, instead of stopping.
 #. UK date-times load day-first even when the first day over 12 comes late in the column, US dates with hyphens and times load as dates, and the data import dialog keeps the date format you choose.
+#. When a date column mixes day-first and month-first dates, :func:`loadd` reads the order most of them fit and warns once for the column, giving how many dates were set to missing and the format to give for the other order.
 #. Accented and other non-English text in spreadsheets now reads and writes correctly on Linux and macOS, whatever the system language setting, including in batch jobs.
 #. :func:`glm` accepts your own variable names when you fit without an intercept.
 #. :func:`linsolve` solves systems with a complex *A*.
