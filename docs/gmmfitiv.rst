@@ -170,7 +170,7 @@ Keyword options
 
 Named options override the corresponding control fields for the current call.
 Supply the instruments and the control only once each, either positionally or by name.
-The string options in the table are case insensitive.
+Method, covariance, weight and kernel names are case insensitive.
 
 Examples
 ----------------
