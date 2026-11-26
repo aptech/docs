@@ -13,6 +13,8 @@ Format
               gOut = gmmFitIV(y, x[, z[, gCtl]])
               gOut = gmmFitIV(dataset, formula[, gCtl])
               gOut = gmmFitIV(dataset, formula[, inst_list[, gCtl]])
+              gOut = gmmFitIV(y, x, instruments={}, method={}, cov_type={}, weight_type={}, hac_kernel={}, hac_lags={}, intercept={}, quiet={}, ctl={})
+              gOut = gmmFitIV(dataset, formula, instruments={}, method={}, cov_type={}, weight_type={}, hac_kernel={}, hac_lags={}, intercept={}, quiet={}, ctl={})
 
     :param y: dependent data vector
     :type y: Nx1 matrix
@@ -23,8 +25,8 @@ Format
     :param z: Optional input, instrumental variables data matrix. If *z* is excluded, the linear model of *y* and *x* is estimated.
     :type z: NxK matrix
 
-    :param dataset: name of dataset.
-    :type dataset: string
+    :param dataset: name of dataset or dataframe.
+    :type dataset: string or dataframe
 
     :param formula: formula string of the model.
 
@@ -128,8 +130,62 @@ Format
 
     :rtype gOut: struct
 
+Keyword options
+---------------
+
+.. list-table::
+    :header-rows: 1
+    :widths: 20 50 30
+
+    * - Keyword
+      - Values
+      - Default
+    * - ``instruments``
+      - Matrix with vector input, or instrument formula string with dataset or dataframe input.
+      - The regressors.
+    * - ``method``
+      - ``"onestep"``, ``"twostep"`` or ``"iterative"``.
+      - ``"twostep"``
+    * - ``cov_type``
+      - ``"robust"``, ``"hac"`` or ``"unadj"``. ``"iid"`` and ``"unadjusted"`` also select ``"unadj"``.
+      - ``"robust"``
+    * - ``weight_type``
+      - The same choices as ``cov_type``, for the weight matrix.
+      - ``"robust"``
+    * - ``hac_kernel``
+      - ``"bartlett"``, ``"parzen"`` or ``"quad"``. ``"qs"`` also selects ``"quad"``.
+      - ``"bartlett"``
+    * - ``hac_lags``
+      - Nonnegative integer. Zero uses the robust result.
+      - Automatic Newey-West bandwidth.
+    * - ``intercept``
+      - ``1`` to include a constant, ``0`` to omit it. With a formula, the value must agree with the formula.
+      - ``1`` with vector input, or the intercept specified by the formula.
+    * - ``quiet``
+      - ``1`` suppresses the results table, ``0`` prints it.
+      - ``0``
+    * - ``ctl``
+      - A :class:`gmmControl` structure.
+      - The default control for :func:`gmmFitIV`.
+
+Named options override the corresponding control fields for the current call.
+Supply the instruments and the control only once each, either positionally or by name.
+The string options in the table are case insensitive.
+
 Examples
 ----------------
+
+Choose instruments and request a HAC covariance estimate for a dataframe::
+
+    auto_df = loadd(getGAUSSHome("examples/auto"));
+    fit = gmmFitIV(
+        auto_df,
+        "mpg ~ weight",
+        instruments="length + weight",
+        cov_type="hac",
+        hac_lags=4,
+        quiet=1
+    );
 
 Formula String
 +++++++++++++++++++

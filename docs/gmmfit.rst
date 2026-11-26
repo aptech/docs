@@ -10,6 +10,7 @@ Estimate parameters using generalized method of moments.
 Format
 ----------------
 .. function:: gOut = gmmFit(&fct, y[, ...[, gCtl]])
+              gOut = gmmFit(&fct, y, ..., start={}, method={}, cov_type={}, weight_type={}, hac_kernel={}, hac_lags={}, quiet={}, ctl={})
 
     :param &fct: Pointer to user specified moment equation function *&fct*. The function must have the parameter vector to be estimated as the first input and a data matrix as the second input. The data matrix *y* and all optional arguments are passed, untouched, directly to the moment function. The function *fct* should return the desired moments for the GMM objective function and should take the form:
 
@@ -119,6 +120,46 @@ Format
 
     :rtype gOut: struct
 
+Keyword options
+---------------
+
+.. list-table::
+    :header-rows: 1
+    :widths: 20 50 30
+
+    * - Keyword
+      - Values
+      - Default
+    * - ``start``
+      - Real column vector of starting values.
+      - The control's starting values, or ``0.1`` per parameter when ``gCtl.numParams`` is provided.
+    * - ``method``
+      - ``"onestep"``, ``"twostep"``, ``"iterative"`` or ``"cu"``. ``"cue"`` also selects ``"cu"``.
+      - ``"twostep"``
+    * - ``cov_type``
+      - ``"robust"`` or ``"hac"`` for the covariance matrix.
+      - ``"robust"``
+    * - ``weight_type``
+      - ``"robust"`` or ``"hac"`` for the weight matrix.
+      - ``"robust"``
+    * - ``hac_kernel``
+      - ``"bartlett"``, ``"parzen"`` or ``"quad"``. ``"qs"`` also selects ``"quad"``.
+      - ``"bartlett"``
+    * - ``hac_lags``
+      - Nonnegative integer. Zero uses the robust result.
+      - Automatic Newey-West bandwidth.
+    * - ``quiet``
+      - ``1`` suppresses the results table, ``0`` prints it.
+      - ``0``
+    * - ``ctl``
+      - A :class:`gmmControl` structure.
+      - The default control for :func:`gmmFit`.
+
+Place the moment function's data arguments before the named options. Supply
+the control only once, either positionally or by name. Named options override
+the corresponding control fields for the current call. The string options in the
+table are case insensitive.
+
 Examples
 ----------------
 
@@ -149,19 +190,9 @@ Use data matrices
     // Just use one of x's
     yt = y[., 1];
 
-    struct gmmControl gctl;
-    gctl = gmmControlCreate();
-
-    /*
-    ** Set starting values
-    ** This or number of parameters must
-    ** be specified if no x mats
-    */
-    gctl.bStart = 7;
-
-    // Continuous estimation
+    // Set the starting value by name
     struct gmmOut gOut1;
-    gOut1 = gmmFit(&meqn, yt, gctl);
+    gOut1 = gmmFit(&meqn, yt, start=7);
 
     /*
     ** User defined moment equation
