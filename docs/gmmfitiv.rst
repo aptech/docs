@@ -145,7 +145,7 @@ Keyword options
       - Matrix with vector input, or instrument formula string with dataset or dataframe input.
       - The regressors.
     * - ``method``
-      - ``"onestep"``, ``"twostep"`` or ``"iterative"``.
+      - ``"onestep"``, ``"twostep"`` or ``"iterative"``. ``"iterated"`` also selects ``"iterative"``.
       - ``"twostep"``
     * - ``cov_type``
       - ``"robust"``, ``"hac"`` or ``"unadj"``. ``"iid"`` and ``"unadjusted"`` also select ``"unadj"``.

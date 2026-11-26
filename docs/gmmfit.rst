@@ -134,7 +134,7 @@ Keyword options
       - Real column vector of starting values.
       - The control's starting values, or ``0.1`` per parameter when ``gCtl.numParams`` is provided.
     * - ``method``
-      - ``"onestep"``, ``"twostep"``, ``"iterative"`` or ``"cu"``. ``"cue"`` also selects ``"cu"``.
+      - ``"onestep"``, ``"twostep"``, ``"iterative"`` or ``"cu"``. ``"iterated"`` selects ``"iterative"`` and ``"cue"`` selects ``"cu"``.
       - ``"twostep"``
     * - ``cov_type``
       - ``"robust"`` or ``"hac"`` for the covariance matrix.
