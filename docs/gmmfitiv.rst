@@ -124,6 +124,7 @@ Format
             "gOut.numMoments", "scalar, number of moments."
             "gOut.numObs", "scalar, number of observations."
             "gOut.numInstruments", "scalar, number of instruments."
+            "gOut.instNames", "string array, names of the instrument columns in the order used by the fit, including the constant when present."
             "gOut.numMoments", "scalar, number of moments."
             "gOut.JStat", "scalar, Hansen statistic of overidentification (Sargan's statistic for one-step GMM with the unadjusted weight and covariance). Missing for just-identified models and other one-step fits. See gCtl.jStatWeight."
             "gOut.df", "scalar, degrees of freedom."
