@@ -322,8 +322,13 @@ When every date or date-time in a column fits both month-first and
 day-first order, GAUSS reads the column month-first, without a warning,
 on every platform. For example, ``01/02/2020`` is read as January 2, 2020.
 This also applies to date-times with hyphens: ``01-02-2020 10:30`` is read
-as January 2, 2020 at 10:30. If the column contains a day greater than 12,
-GAUSS uses the only order that fits.
+as January 2, 2020 at 10:30. If only one order fits the column, GAUSS uses
+that order.
+
+If a column mixes day-first and month-first dates, GAUSS uses the order
+that fits more non-missing values, or month-first on a tie.
+It warns once for that column and reports how many values were set to
+missing; give an explicit format to choose the other order.
 
 To read a UK file in day-first order, specify the format in the formula
 string. For a column named ``when`` containing ``01/02/2020``, this reads
