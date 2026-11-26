@@ -327,8 +327,8 @@ that order.
 
 If a column mixes day-first and month-first dates, GAUSS uses the order
 that fits more non-missing values, or month-first on a tie.
-It warns once for that column and reports how many values were set to
-missing; give an explicit format to choose the other order.
+It warns once for that column and reports how many dates that fit only the
+other order were set to missing; give an explicit format to choose the other order.
 
 To read a UK file in day-first order, specify the format in the formula
 string. For a column named ``when`` containing ``01/02/2020``, this reads
