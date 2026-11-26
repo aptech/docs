@@ -16,7 +16,9 @@ Format
     :return myPlot: a :class:`plotControl` structure.
     :rtype myPlot: struct
 
-New plots use 11-point Arial for labels, tick numbers and legends, and 13-point bold Arial for the title. Set ``myPlot.titleBold = 0`` for a regular-weight title.
+New plots use 11-point Arial for labels, tick numbers and legends, and 13-point bold Arial for the title.
+On surface plots, tick numbers use 85% of the Z-axis label size, with a minimum of 6 points.
+Set ``myPlot.titleBold = 0`` for a regular-weight title.
 
 Examples
 ----------------
