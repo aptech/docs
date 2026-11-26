@@ -9,8 +9,8 @@ Creates a graph of time series data with the y-axis on a log scale.
 
 Format
 ----------------
-.. function:: plotTSLog([myPlot, ]dtstart, frequency, y [, title={}, xlabel={}, ylabel={}, legend={}, ylim={}, colors={}, legend_location={}, line_width={}, line_style={}, marker={}, grid={}, xtick_fmt={}])
-              plotTSLog([myPlot, ]date_vec, label_unit, y [, title={}, xlabel={}, ylabel={}, legend={}, ylim={}, colors={}, legend_location={}, line_width={}, line_style={}, marker={}, grid={}, xtick_fmt={}])
+.. function:: plotTSLog([myPlot, ]dtstart, frequency, y [, title={}, xlabel={}, ylabel={}, legend={}, ylim={}, colors={}, legend_location={}, line_width={}, line_style={}, marker={}, grid={}, xtick_fmt={}, font_name={}, font_scale={}])
+              plotTSLog([myPlot, ]date_vec, label_unit, y [, title={}, xlabel={}, ylabel={}, legend={}, ylim={}, colors={}, legend_location={}, line_width={}, line_style={}, marker={}, grid={}, xtick_fmt={}, font_name={}, font_scale={}])
 
     :param myPlot: Optional argument, a :class:`plotControl` structure.
     :type myPlot: struct
@@ -95,6 +95,10 @@ Omit a keyword or use ``{}`` to use the control or plot defaults.
       - Style numbers 1 through 5, or ``solid``, ``dash``, ``dot``, ``dashdot`` and ``dashdotdot``. Also accepts ``dashed``, ``dotted``, ``dash-dot``, ``dash-dot-dot``, ``-``, ``--``, ``:`` and ``-.``.
     * - ``marker``
       - Symbol numbers −1 through 14 and names from :func:`plotSetLineSymbol`, with shortcuts ``o``, ``s``, ``d``, ``^``, ``v``, ``+``, ``x``, ``*`` and ``h``.
+    * - ``font_name``
+      - A font family for the title, axis labels, tick labels and legend. If the family is unavailable, the system substitutes a font.
+    * - ``font_scale``
+      - A positive number that multiplies each of these point sizes. For example, ``1.5`` scales an 11-point label to 16.5 points. The default is ``1``.
     * - ``grid``
       - ``0`` (off), ``1`` (major grid), ``"major"``, ``"minor"`` or ``"both"``.
 

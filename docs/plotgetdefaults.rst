@@ -16,6 +16,8 @@ Format
     :return myPlot: a :class:`plotControl` structure.
     :rtype myPlot: struct
 
+New plots use 11-point Arial for labels, tick numbers and legends, and 13-point bold Arial for the title. Set ``myPlot.titleBold = 0`` for a regular-weight title.
+
 Examples
 ----------------
 
