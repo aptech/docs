@@ -150,6 +150,7 @@ Keyword options
       - Automatic Newey-West bandwidth.
     * - ``quiet``
       - ``1`` suppresses the results table, ``0`` prints it.
+        The note about switching from unadjusted control settings to robust settings still appears.
       - ``0``
     * - ``ctl``
       - A :class:`gmmControl` structure.
