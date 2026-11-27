@@ -261,21 +261,39 @@ available. No covariance has a small-sample correction.
        computed, and a warning is printed: they assume a fit inside that
        region and may be unreliable. This holds even when the likelihood
        still rises beyond persistence 1.
+   * - ``"df_upper_bound"``
+     - The fitted *t* degrees of freedom are at their upper bound 500
+       (within 1e-6 relative), no other bound is active, and the
+       covariance checks pass with *df* held fixed. The other parameters
+       have standard errors, p-values and limits conditional on that *df*.
+       The *df* row has no standard error, p-value or limits; its covariance
+       row and column are missing. *result.inference_message* says
+       "WARNING: df is at its upper bound 500 (errors close to normal).
+       Standard errors hold df fixed; df has none." The same text is printed
+       as a warning, even when *quiet* is 1. If the covariance checks fail
+       with *df* held fixed, the status is ``"failed"`` or ``"nonregular"``
+       instead, and the fit is kept.
    * - ``"nonregular"``
      - The fit is at or very near a bound: :math:`\omega`, an
        :math:`\alpha_i` or a :math:`\beta_j` at 0, :math:`\alpha + \gamma`
-       at 0 for GJR, the *t* degrees of freedom at 2.05 or 500, or the
+       at 0 for GJR (or :math:`\gamma_i` at 0 at a lag without an
+       :math:`\alpha_i`), the *t* degrees of freedom at 2.05 (or at 500 together
+       with another bound), or the
        persistence at 1 together with another bound. When the Hessian is not
        positive definite, a fit held by a constraint is also
        ``"nonregular"``: the persistence at 1 with the likelihood still
        rising beyond it, or a parameter at 0 with the likelihood still rising
        toward it. The usual standard errors do not apply there, so none are
-       given. *result.inference_message* says which case it is: "Persistence
-       at 1 and the likelihood still rises beyond it: Wald inference
-       suppressed", "alpha1 at 0 and the likelihood still rises toward it:
-       Wald inference suppressed" (or another parameter, such as omega or
-       alpha1 + gamma1), or "Boundary or near-boundary fit: Wald inference
-       suppressed" for the others.
+       given. *result.inference_message* names the first active bound. When
+       *df* is at 500 together with other bounds, it names the first other
+       bound, for example
+       "alpha1 at or near 0: Wald inference suppressed". At the lower *df*
+       bound the message is "df at its lower bound 2.05: Wald inference
+       suppressed". A held constraint is named as
+       "Persistence at 1 and the likelihood still rises beyond it: Wald
+       inference suppressed" or "alpha1 at 0 and the likelihood still rises
+       toward it: Wald inference suppressed" (or another parameter, such as
+       omega or alpha1 + gamma1).
    * - ``"failed"``
      - The standard errors could not be computed; the fit is kept.
        *result.inference_message* gives the reason: too few observations,
@@ -294,9 +312,13 @@ available. No covariance has a small-sample correction.
 
 With *t* errors, a large fitted *df* (hundreds) means the data say little
 about the tails beyond what normal errors describe, and the curvature of the
-likelihood in *df* is small and noisy. The *df* standard error is then
-unreliable, even though no warning is printed. Consider normal errors for
-such a series.
+likelihood in *df* is small and noisy. Below the upper bound, the *df*
+standard error can be unreliable even when no warning is printed. Consider
+normal errors for such a series. At the upper bound 500 alone, standard
+errors for the other parameters hold *df* fixed, the *df* row has no standard
+error, p-value or limits, and a warning is printed (``"df_upper_bound"``).
+At 500 together with other bounds, inference is ``"nonregular"`` and the
+message names the first other bound. At 2.05 it names the lower *df* bound.
 
 Sample size
 -----------
