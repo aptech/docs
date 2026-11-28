@@ -51,6 +51,19 @@ Examples
 Remarks
 -------
 
+The default inverse-gamma priors for the drift variances have shape 6
+and base scale 0.01. For coefficient drift, the sampler divides each
+equation's OLS residual variance (floored at 0.01) by its usable sample
+size. It limits this multiplier to the interval [0.000001, 10] and applies
+it to *q_b_scale*. For drift in the contemporaneous relationships, the
+sampler uses *q_u_scale* directly.
+
+These defaults assume data in percent or growth-rate units. For series
+in levels, use smaller drift scales, especially when large lagged values
+can turn a small coefficient change into a large change in the fitted
+series. Set *q_b_scale* and *q_u_scale* in the control returned by
+:func:`tvpSvControlCreate`.
+
 The forecast bands from :func:`tvpSvForecast` cover parameter uncertainty
 only; they exclude future shocks. Forecast from the fitted result in the
 same session.
