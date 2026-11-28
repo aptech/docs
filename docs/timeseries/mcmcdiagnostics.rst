@@ -16,7 +16,7 @@ Format
    :param rhat_threshold: Optional keyword, strict upper bound on the maximum R-hat for convergence. Controls the convergence flag, warning count and printout. Default = 1.01.
    :type rhat_threshold: scalar
 
-   :param min_ess: Optional keyword, strict lower bound on both minimum bulk and minimum tail effective sample size for convergence. Controls the convergence flag, warning count and printout. Default = 400.
+   :param min_ess: Optional keyword, strict lower bound on both minimum bulk and minimum tail effective sample size for convergence. Sets the ESS target for *dx.recommended_draws*. A value of 0 leaves that field empty. Default = 400.
    :type min_ess: scalar
 
    :param quiet: Optional keyword, set to 1 to suppress printed output. Default = 0.
@@ -51,6 +51,12 @@ minimum tail ESS are strictly above *min_ess* (default 400). The keywords
 set the native convergence flag and warning count as well as the printout.
 *dx.min_tail_ess* contains the computed minimum tail ESS. A short run often
 fails the sample-size checks: run more draws.
+
+To estimate how many kept draws would reach *min_ess*, use *dx.recommended_draws*.
+The projection assumes the same sampling efficiency and rounds up
+:math:`n_{\mathrm{draws}}\,\mathrm{min\_ess}/\mathrm{smallest\ ESS}`,
+where the denominator is the smaller of the minimum bulk and tail ESS.
+The field is empty when *min_ess* is 0 or no ESS is measured.
 
 The result must come from :func:`bvarSvFit` in the same session; a result
 loaded from a file is refused and must be refit.

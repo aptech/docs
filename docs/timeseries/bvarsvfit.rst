@@ -290,6 +290,12 @@ Scaling is semiautomatic (George, Sun & Ni 2008): the spike and slab widths
 are scaled by each coefficient's OLS standard error, making the prior adaptive
 to the natural scale.
 
+When the smallest measured bulk or tail ESS is at or below 400, the fit
+printout estimates how many kept draws would reach 400. To project a
+different target, call :func:`mcmcDiagnostics` with *min_ess* set to that
+target and read *dx.recommended_draws*. A target of 0 or an unavailable
+ESS leaves the field empty.
+
 **Repeated fits and storage:**
 Use distinct seeds for independent fits. :func:`mcmcDiagnostics` reports
 within-fit split-chain diagnostics, not a pooled diagnostic across those fits.

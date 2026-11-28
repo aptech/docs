@@ -29,3 +29,7 @@
      - Scalar, number of variables.
    * - dx.var_names
      - mx1 string array, variable names.
+   * - dx.min_ess_quantity
+     - Name of the quantity with the smallest measured bulk or tail ESS. Empty when no ESS is measured.
+   * - dx.recommended_draws
+     - Kept draws projected to reach *min_ess* at the smallest measured ESS. Empty when *min_ess* is 0 or no ESS is measured.
